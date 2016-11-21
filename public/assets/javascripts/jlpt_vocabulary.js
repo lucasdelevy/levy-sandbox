@@ -42,10 +42,10 @@ $(document).ready(function()
 	})
 
 	n_button = 	[	document.getElementById('n1_button'),
-								document.getElementById('n2_button'),
-								document.getElementById('n3_button'),
-								document.getElementById('n4_button'),
-								document.getElementById('n5_button')]
+					document.getElementById('n2_button'),
+					document.getElementById('n3_button'),
+					document.getElementById('n4_button'),
+					document.getElementById('n5_button')]
 	previous_button = document.getElementById('previous_button')
 	next_button = document.getElementById('next_button')
 	question_num_div = document.getElementById('question_num')
@@ -77,6 +77,7 @@ function submitAnswer()
 	answers[question_counter] = answer_div.value
 
 	var score = 0
+	
 	for(i = 0; i <= max_question_counter; i++)
 	{
 		var find_string = (!answers[i].trim() ? 'no answer' : answers[i].trim())
