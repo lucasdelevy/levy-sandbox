@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get		'/has-matheus-portela-failed-already'  =>	'static_pages#has_matheus_portela_failed'
   get   '/who-are-you'							           =>	'static_pages#about_me'
   get   '/quaternions'                         => 'static_pages#quaternions'
+  get   '/proximo-episodio-sera'               => 'static_pages#dbz'
   get   '/jlpt'                                => 'static_pages#jlpt'
   get   '/jlpt/vocabulary'                     => 'static_pages#jlpt_vocabulary'
   get   '/jlpt/vocabulary/sample'              => 'static_pages#jlpt_vocabulary_get'

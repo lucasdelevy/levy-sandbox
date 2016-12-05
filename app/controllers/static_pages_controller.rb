@@ -25,4 +25,7 @@ class StaticPagesController < ApplicationController
       format.json { render :json => jlpt_vocabulary }
     end
   end
+
+  def dbz
+  end
 end
