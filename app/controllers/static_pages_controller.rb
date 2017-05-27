@@ -28,20 +28,20 @@ class StaticPagesController < ApplicationController
 
   def run_wild
     puts "oi"
-    @oauth = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, REDIRECT_URI)
+    $oauth = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, REDIRECT_URI)
     puts "oi1"
-    @auth_url = @oauth.url_for_oauth_code(:permissions=>"publish_actions", :state=>"RANDOMSTRINGS")
+    @auth_url = $oauth.url_for_oauth_code(:permissions=>'publish_actions', :state=>'RANDOMSTRINGS')
     puts @auth_url
     redirect_to @auth_url
   end
 
   def run_wild_callback
     # auth established, now do a graph call:
-    @access_token = @oauth.get_access_token(params[:code])
-    @access_token_info = @oauth.get_access_token_info(params[:code])
+    @access_token = $oauth.get_access_token(params[:code])
 
-    @api = Koala::Facebook::API.new(@access_token)
-    @graph_data = @api.get_object("/me/statuses", "fields"=>"message")
-    @graph_data.put_connections("me", "feed", message: "I am writing on my wall!")
+    @graph_data = Koala::Facebook::API.new(@access_token)
+    @graph_data.get_object('me')
+    @graph_data.get_connection('me', 'feed')
+    @graph_data.put_wall_post('Testando' + (0...8).map { (65 + rand(26)).chr }.join)
   end
 end
