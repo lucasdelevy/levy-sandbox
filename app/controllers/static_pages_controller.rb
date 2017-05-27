@@ -27,5 +27,20 @@ class StaticPagesController < ApplicationController
   end
 
   def run_wild
+    puts "oi"
+    @oauth = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, SITE_URL + 'callback/')
+    puts "oi1"
+    @auth_url =  @oauth.url_for_oauth_code(:permissions=>"publish_actions", :state=>"RANDOMSTRINGS")
+    puts "oi2"
+    @access_token = @oauth.get_access_token(params[:code])
+    @access_token_info = @oauth.get_access_token_info(params[:code])
+  end
+
+  def run_wild_callback
+    # auth established, now do a graph call:
+      
+    @api = Koala::Facebook::API.new(@access_token)
+    @graph_data = @api.get_object("/me/statuses", "fields"=>"message")
+    @graph_data.put_connections("me", "feed", message: "I am writing on my wall!")
   end
 end

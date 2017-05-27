@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get   '/jlpt/kanji'                     => 'static_pages#jlpt_kanji'
   get   '/jlpt/kanji/sample'              => 'static_pages#jlpt_kanji_get'
   get   '/run-wild'                            => 'static_pages#run_wild'
+  get   '/run-wild/callback'                   => 'static_pages#run_wild_callback'
   get   '/blog'	 								               =>	'posts#index'
   get   '/signup'  								             =>	'users#new'
   get   '/login'   								             =>	'sessions#new'
