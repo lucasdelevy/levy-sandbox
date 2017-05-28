@@ -30,11 +30,8 @@ class StaticPagesController < ApplicationController
   end
 
   def run_wild
-    puts "oi"
     $oauth = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, REDIRECT_URI)
-    puts "oi1"
     @auth_url = $oauth.url_for_oauth_code(:permissions=>'publish_actions', :state=>'RANDOMSTRINGS')
-    puts @auth_url
     redirect_to @auth_url
   end
 
@@ -45,6 +42,7 @@ class StaticPagesController < ApplicationController
     @graph_data = Koala::Facebook::API.new(@access_token)
     @graph_data.get_object('me')
     @graph_data.get_connection('me', 'feed')
+    # @graph_data.put_wall_post('Testando' + (0...8).map { (65 + rand(26)).chr }.join)
     @graph_data.put_wall_post('Testando' + (0...8).map { (65 + rand(26)).chr }.join)
   end
 end
