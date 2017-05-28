@@ -26,6 +26,9 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def run_wild_setup
+  end
+
   def run_wild
     puts "oi"
     $oauth = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, REDIRECT_URI)
