@@ -27,7 +27,11 @@ class StaticPagesController < ApplicationController
   end
 
   def run_wild_setup
+    $message = "/run-wild?value="+params[:value].to_s+"\&unit="+params[:unit].to_s
+    puts $message
   end
+
+  $message = nil
 
   def run_wild
     $oauth = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, REDIRECT_URI)
@@ -43,6 +47,6 @@ class StaticPagesController < ApplicationController
     @graph_data.get_object('me')
     @graph_data.get_connection('me', 'feed')
     # @graph_data.put_wall_post('Testando' + (0...8).map { (65 + rand(26)).chr }.join)
-    @graph_data.put_wall_post('Testando' + (0...8).map { (65 + rand(26)).chr }.join)
+    @graph_data.put_wall_post('http://lucasdelevy.herokuapp.com'+$message)
   end
 end
