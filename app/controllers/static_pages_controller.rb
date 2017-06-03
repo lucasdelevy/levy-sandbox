@@ -29,6 +29,9 @@ class StaticPagesController < ApplicationController
   def run_wild_setup
     $message = "/run-wild?value="+params[:value].to_s+"\&unit="+params[:unit].to_s
     puts $message
+
+    @title_str =  'I Just Ran ' + params[:value].to_s + params[:unit].to_s + ' With Run Wild!'
+    puts @title_str
   end
 
   $message = nil
