@@ -34,13 +34,6 @@ class StaticPagesController < ApplicationController
 
     $title_str =  'I Just Ran ' + params[:value].to_s + params[:unit].to_s + ' With Run Wild!'
     puts @title_str
-
-    # set_meta_tags title: @title_str
-    # set_meta_tags url: "http://lucasdelevy.herokuapp.com"+$message
-    # set_meta_tags type: "fitness.course"
-    # set_meta_tags description: "RUN WILD"
-    # set_meta_tags image: "http://lucasdelevy.herokuapp.com/images/finding-dory.jpg"
-    # set_meta_tags app_id: "260089191125652"
   end
 
   $message = nil
@@ -71,7 +64,7 @@ class StaticPagesController < ApplicationController
                     title:     $title_str,
                     type:      'fitness.course',
                     url:       'http://lucasdelevy.herokuapp.com'+$message,
-                    image:     'http://lucasdelevy.herokuapp.com/images/finding-dory.jpg',
+                    image:     'http://lucasdelevy.herokuapp.com/assets/etna-run-wild.png',
                     app_id:    '260089191125652'
                   }
   end
