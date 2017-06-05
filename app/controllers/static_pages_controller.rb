@@ -36,6 +36,7 @@ class StaticPagesController < ApplicationController
     puts $message_str
 
     $title_str =  'I Just Ran ' + params[:value].to_s + params[:unit].to_s + ' With Run Wild!'
+    puts $title_str
   end
 
   def run_wild
@@ -52,8 +53,8 @@ class StaticPagesController < ApplicationController
     @api.get_object('me')
     @api.get_connection('me', 'feed')
 
-    scrape = @api.get_object('https://lucasdelevy.herokuapp.com'+$message_str, {}, { scrape: true })
-    puts scrape
+    # scrape = @api.get_object('https://lucasdelevy.herokuapp.com'+$message_str, {}, { scrape: true })
+    # puts "QUEM SABE FAZ AO VIVO: "+scrape
 
     @api.put_wall_post($title_str, {
               "name" => "Run Wild",
