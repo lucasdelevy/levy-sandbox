@@ -61,6 +61,8 @@ class StaticPagesController < ApplicationController
             })
   end
 
+  handle_asynchronously :run_wild_callback
+
   def please_set_meta_tags
     if $message_str == nil
       run_wild_setup
