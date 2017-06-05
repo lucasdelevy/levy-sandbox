@@ -66,7 +66,7 @@ class StaticPagesController < ApplicationController
               "link" => APP_URL+$message_str,
               "caption" => "RUN WILD",
               "description" => $title_str,
-              "picture" => "http://lucasdelevy.herokuapp.com/assets/etna-run-wild.png"
+              "picture" => "https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png"
             })
   end
 
@@ -81,7 +81,7 @@ class StaticPagesController < ApplicationController
                     title:     $title_str,
                     type:      'fitness.course',
                     url:       APP_URL+$message_str,
-                    image:     'http://lucasdelevy.herokuapp.com/assets/etna-run-wild.png',
+                    image:     'https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png',
                     app_id:    '260089191125652'
                   }
   end
