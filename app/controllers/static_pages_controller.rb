@@ -36,7 +36,6 @@ class StaticPagesController < ApplicationController
     puts $message_str
 
     $title_str =  'I Just Ran ' + params[:value].to_s + params[:unit].to_s + ' With Run Wild!'
-    puts $title_str
   end
 
   def run_wild
@@ -49,11 +48,14 @@ class StaticPagesController < ApplicationController
     # auth established, now do a graph call:
     @access_token = $oauth.get_access_token(params[:code])
 
-    @graph_data = Koala::Facebook::API.new(@access_token)
-    @graph_data.get_object('me')
-    @graph_data.get_connection('me', 'feed')
+    @api = Koala::Facebook::API.new(@access_token)
+    @api.get_object('me')
+    @api.get_connection('me', 'feed')
 
-    @graph_data.put_wall_post($title_str, {
+    scrape = @api.get_object('https://lucasdelevy.herokuapp.com'+$message_str, {}, { scrape: true })
+    puts scrape
+
+    @api.put_wall_post($title_str, {
               "name" => "Run Wild",
               "link" => 'https://lucasdelevy.herokuapp.com'+$message_str,
               "caption" => "RUN WILD",
