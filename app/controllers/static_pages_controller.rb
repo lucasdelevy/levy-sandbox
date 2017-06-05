@@ -1,5 +1,8 @@
 class StaticPagesController < ApplicationController
   before_action :please_set_meta_tags
+  # handle_asynchronously :run_wild_callback
+
+  $message_str = nil
 
   def welcome
   end
@@ -36,8 +39,6 @@ class StaticPagesController < ApplicationController
     puts $title_str
   end
 
-  $message_str = nil
-
   def run_wild
     $oauth = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, REDIRECT_URI)
     @auth_url = $oauth.url_for_oauth_code(:permissions=>'publish_actions', :state=>'RANDOMSTRINGS')
@@ -60,8 +61,6 @@ class StaticPagesController < ApplicationController
               "picture" => "https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png"
             })
   end
-
-  handle_asynchronously :run_wild_callback
 
   def please_set_meta_tags
     if $message_str == nil
