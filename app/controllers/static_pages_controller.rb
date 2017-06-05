@@ -63,9 +63,13 @@ class StaticPagesController < ApplicationController
   end
 
   def please_set_meta_tags
+    puts "Chegamos aqui?!"
+
     if $message == nil
       run_wild_setup
     end
+
+    puts "E acá?!"
 
     set_meta_tags title:       $title_str.html_safe,
                   description: 'ABC',
