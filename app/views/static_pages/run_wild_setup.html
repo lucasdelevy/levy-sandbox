@@ -2,15 +2,10 @@
 <html>
 
 <head>
-  <% content_for :head do %>
+
+  <% content_for :head do %>    
     <meta charset="utf-8" />
-    <meta property="og:url" content=<%= "http://lucasdelevy.herokuapp.com"+$message %> />
-    <meta property="og:type"  content="fitness.course" />
-    
-    <meta property="og:title" content=<%= @title_str %> />
-    <meta property="og:description" content=<%="RUN WILD" %> />
-    <meta property="og:image"       content="http://lucasdelevy.herokuapp.com/images/finding-dory.jpg" />
-    <meta property="og:app_id"  content="260089191125652"
+    <!-- <meta property="og:type"  content="fitness.course" /> -->
   <% end %>
 
   <%= stylesheet_link_tag "css/main.css", "css/welcome.css" %>
