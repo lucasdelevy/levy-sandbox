@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  before_action :please_set_meta_tags
+
   def welcome
   end
 
@@ -30,15 +32,15 @@ class StaticPagesController < ApplicationController
     $message = "/run-wild?value="+params[:value].to_s+"\&unit="+params[:unit].to_s
     puts $message
 
-    @title_str =  'I Just Ran ' + params[:value].to_s + params[:unit].to_s + ' With Run Wild!'
+    $title_str =  'I Just Ran ' + params[:value].to_s + params[:unit].to_s + ' With Run Wild!'
     puts @title_str
 
-    set_meta_tags title: @title_str
-    set_meta_tags url: "http://lucasdelevy.herokuapp.com"+$message
-    set_meta_tags type: "fitness.course"
-    set_meta_tags description: "RUN WILD"
-    set_meta_tags image: "http://lucasdelevy.herokuapp.com/images/finding-dory.jpg"
-    set_meta_tags app_id: "260089191125652"
+    # set_meta_tags title: @title_str
+    # set_meta_tags url: "http://lucasdelevy.herokuapp.com"+$message
+    # set_meta_tags type: "fitness.course"
+    # set_meta_tags description: "RUN WILD"
+    # set_meta_tags image: "http://lucasdelevy.herokuapp.com/images/finding-dory.jpg"
+    # set_meta_tags app_id: "260089191125652"
   end
 
   $message = nil
@@ -58,5 +60,19 @@ class StaticPagesController < ApplicationController
     @graph_data.get_connection('me', 'feed')
     # @graph_data.put_wall_post('Testando' + (0...8).map { (65 + rand(26)).chr }.join)
     @graph_data.put_wall_post('http://lucasdelevy.herokuapp.com'+$message)
+  end
+
+  def please_set_meta_tags
+    run_wild_setup
+
+    set_meta_tags title:       $title_str,
+                  description: 'RUN WILD',
+                  og: {
+                    title:     $title_str,
+                    type:      'fitness.course',
+                    url:       'http://lucasdelevy.herokuapp.com'+$message,
+                    image:     'http://lucasdelevy.herokuapp.com/images/finding-dory.jpg',
+                    app_id:    '260089191125652'
+                  }
   end
 end
