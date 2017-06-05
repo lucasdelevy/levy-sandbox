@@ -52,7 +52,6 @@ class StaticPagesController < ApplicationController
     @graph_data.get_object('me')
     @graph_data.get_connection('me', 'feed')
 
-    puts "e lá vamos nós: "+$message_str
     @graph_data.put_wall_post($title_str, {
               "name" => "Run Wild",
               "link" => 'https://lucasdelevy.herokuapp.com'+$message_str,
@@ -72,7 +71,7 @@ class StaticPagesController < ApplicationController
                   og: {
                     title:     $title_str,
                     type:      'fitness.course',
-                    url:       'http://lucasdelevy.herokuapp.com'+$message_str,
+                    url:       'https://lucasdelevy.herokuapp.com'+$message_str,
                     image:     'https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png',
                     app_id:    '260089191125652'
                   }
