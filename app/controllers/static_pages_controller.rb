@@ -29,7 +29,7 @@ class StaticPagesController < ApplicationController
   end
 
   def run_wild_setup
-    $message = "/run-wild?value="+params[:value].to_s+"\&unit="+params[:unit].to_s
+    $message = "/run-wild?value="+params[:value].to_s+"\&unit="+params[:unit].to_s+'/'
     puts $message
 
     $title_str =  'I Just Ran ' + params[:value].to_s + params[:unit].to_s + ' With Run Wild!'
@@ -52,7 +52,7 @@ class StaticPagesController < ApplicationController
     @graph_data.get_object('me')
     @graph_data.get_connection('me', 'feed')
     # @graph_data.put_wall_post('Testando' + (0...8).map { (65 + rand(26)).chr }.join)
-    @graph_data.put_wall_post('http://lucasdelevy.herokuapp.com'+$message)
+    @graph_data.put_wall_post('https://lucasdelevy.herokuapp.com'+$message)
   end
 
   def please_set_meta_tags
@@ -63,8 +63,8 @@ class StaticPagesController < ApplicationController
                   og: {
                     title:     $title_str,
                     type:      'fitness.course',
-                    url:       'http://lucasdelevy.herokuapp.com'+$message,
-                    image:     'http://lucasdelevy.herokuapp.com/assets/etna-run-wild.png',
+                    url:       'https://lucasdelevy.herokuapp.com'+$message,
+                    image:     'https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png',
                     app_id:    '260089191125652'
                   }
   end
