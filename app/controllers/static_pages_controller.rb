@@ -55,7 +55,7 @@ class StaticPagesController < ApplicationController
     @graph_data.put_wall_post($title_str, {
               "name" => "Run Wild",
               "link" => 'https://lucasdelevy.herokuapp.com'+$message_str,
-              "caption" => "DEF",
+              "caption" => "RUN WILD",
               "description" => $title_str,
               "picture" => "https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png"
             })
@@ -67,7 +67,7 @@ class StaticPagesController < ApplicationController
     end
 
     set_meta_tags title:       $title_str,
-                  description: 'ABC',
+                  description: 'JOIN US AND RUN WILD',
                   og: {
                     title:     $title_str,
                     type:      'fitness.course',
