@@ -29,14 +29,14 @@ class StaticPagesController < ApplicationController
   end
 
   def run_wild_setup
-    $message = "/run-wild?value="+params[:value].to_s+"\&unit="+params[:unit].to_s+'/'
-    puts $message
+    $message_str = "/run-wild?value="+params[:value].to_s+"\&unit="+params[:unit].to_s
+    puts $message_str
 
     $title_str =  'I Just Ran ' + params[:value].to_s + params[:unit].to_s + ' With Run Wild!'
-    puts @title_str
+    puts $title_str
   end
 
-  $message = nil
+  $message_str = nil
 
   def run_wild
     $oauth = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, REDIRECT_URI)
@@ -51,19 +51,28 @@ class StaticPagesController < ApplicationController
     @graph_data = Koala::Facebook::API.new(@access_token)
     @graph_data.get_object('me')
     @graph_data.get_connection('me', 'feed')
-    # @graph_data.put_wall_post('Testando' + (0...8).map { (65 + rand(26)).chr }.join)
-    @graph_data.put_wall_post('https://lucasdelevy.herokuapp.com'+$message)
+
+    puts "e lá vamos nós: "+$message_str
+    @graph_data.put_wall_post($title_str, {
+              "name" => "Run Wild",
+              "link" => 'https://lucasdelevy.herokuapp.com'+$message_str,
+              "caption" => "DEF",
+              "description" => $title_str,
+              "picture" => "https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png"
+            })
   end
 
   def please_set_meta_tags
-    run_wild_setup
+    if $message == nil
+      run_wild_setup
+    end
 
-    set_meta_tags title:       $title_str,
-                  description: 'RUN WILD',
+    set_meta_tags title:       $title_str.html_safe,
+                  description: 'ABC',
                   og: {
-                    title:     $title_str,
+                    title:     $title_str.html_safe,
                     type:      'fitness.course',
-                    url:       'https://lucasdelevy.herokuapp.com'+$message,
+                    url:       'http://lucasdelevy.herokuapp.com'+$message,
                     image:     'https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png',
                     app_id:    '260089191125652'
                   }
