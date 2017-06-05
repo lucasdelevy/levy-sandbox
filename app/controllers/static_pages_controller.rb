@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
   before_action :please_set_meta_tags
-  # handle_asynchronously :run_wild_callback
 
   $message_str = nil
 
@@ -32,7 +31,7 @@ class StaticPagesController < ApplicationController
   end
 
   def run_wild_setup
-    $message_str = "/run-wild?value="+params[:value].to_s+"\&unit="+params[:unit].to_s
+    $message_str = "?value="+params[:value].to_s+"\&unit="+params[:unit].to_s
     puts $message_str
 
     $title_str =  'I Just Ran ' + params[:value].to_s + params[:unit].to_s + ' With Run Wild!'
@@ -53,12 +52,18 @@ class StaticPagesController < ApplicationController
     @api.get_object('me')
     @api.get_connection('me', 'feed')
 
-    # scrape = @api.get_object('https://lucasdelevy.herokuapp.com'+$message_str, {}, { scrape: true })
-    # puts "QUEM SABE FAZ AO VIVO: "+scrape
+    conn = Faraday.new(:url => "https://graph.facebook.com") 
+    conn.post '/v2.9',
+    {
+      :scrape => 'true',
+      :id => APP_URL+$message_str,
+      :access_token => @access_token
+    }
+    # puts "QUEM SABE FAZ AO VIVO: "+conn.to_s
 
     @api.put_wall_post($title_str, {
               "name" => "Run Wild",
-              "link" => 'https://lucasdelevy.herokuapp.com'+$message_str,
+              "link" => APP_URL+$message_str,
               "caption" => "RUN WILD",
               "description" => $title_str,
               "picture" => "https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png"
@@ -75,7 +80,7 @@ class StaticPagesController < ApplicationController
                   og: {
                     title:     $title_str,
                     type:      'fitness.course',
-                    url:       'https://lucasdelevy.herokuapp.com'+$message_str,
+                    url:       APP_URL+$message_str,
                     image:     'https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png',
                     app_id:    '260089191125652'
                   }
