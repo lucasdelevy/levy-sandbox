@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  # before_action :please_set_meta_tags
+  before_action :please_set_meta_tags
 
   def welcome
   end
@@ -62,23 +62,19 @@ class StaticPagesController < ApplicationController
             })
   end
 
-  # def please_set_meta_tags
-  #   puts "Chegamos aqui?!"
+  def please_set_meta_tags
+    if $message_str == nil
+      run_wild_setup
+    end
 
-  #   if $message == nil
-  #     run_wild_setup
-  #   end
-
-  #   puts "E acá?!"
-
-  #   set_meta_tags title:       $title_str.html_safe,
-  #                 description: 'ABC',
-  #                 og: {
-  #                   title:     $title_str.html_safe,
-  #                   type:      'fitness.course',
-  #                   url:       'http://lucasdelevy.herokuapp.com'+$message,
-  #                   image:     'https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png',
-  #                   app_id:    '260089191125652'
-  #                 }
-  # end
+    set_meta_tags title:       $title_str,
+                  description: 'ABC',
+                  og: {
+                    title:     $title_str,
+                    type:      'fitness.course',
+                    url:       'http://lucasdelevy.herokuapp.com'+$message_str,
+                    image:     'https://lucasdelevy.herokuapp.com/assets/etna-run-wild.png',
+                    app_id:    '260089191125652'
+                  }
+  end
 end
