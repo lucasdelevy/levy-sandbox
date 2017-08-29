@@ -85,4 +85,7 @@ class StaticPagesController < ApplicationController
                     app_id:    '260089191125652'
                   }
   end
+
+  def triggered
+  end
 end

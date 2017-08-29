@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get   '/run-wild'                            => 'static_pages#run_wild_setup'
   get   '/run-wild/run'                        => 'static_pages#run_wild'
   get   '/run-wild/callback'                   => 'static_pages#run_wild_callback'
+  get   '/triggered'                           => 'static_pages#triggered'
   get   '/blog'	 								               =>	'posts#index'
   get   '/signup'  								             =>	'users#new'
   get   '/login'   								             =>	'sessions#new'
