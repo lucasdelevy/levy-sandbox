@@ -13,7 +13,7 @@ p
 /** Basic styling */
 body 
 {
-    font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif; color: #111; background-color: #FFE5E5; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal;
+    font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif; color: #111; background-color: #A7CCEF; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal;
 }
 
 /** Set `margin-bottom` to maintain vertical rhythm */
@@ -59,15 +59,15 @@ h1, h2, h3, h4, h5, h6
 /** Links */
 a 
 {
-    color: #AD3737; text-decoration: none;
+    color: #3A83CA; text-decoration: none;
 }
 a:visited 
 {
-    color: #732525;
+    color: #1C6FBF;
 }
 a:hover 
 {
-    color: #7DA234;
+    color: #7BAFE2;
 }
 
 /** Blockquotes */
@@ -147,7 +147,7 @@ pre > code
 }
 .site-title, .site-title:hover 
 {
-    color: #7DA234;
+    color: #1C6FBF;
 }
 .site-title:visited 
 {
@@ -164,15 +164,15 @@ pre > code
 }
 .site-nav .page-link 
 {
-    color: #111; line-height: 1.5;
+    color: #3890C9; line-height: 1.5;
 }
 .site-nav .page-link:visited 
 {
-    color: #732525;
+    color: #197CBD;
 }
 .site-nav .page-link:hover 
 {
-    color: #7DA234;
+    color: #78B8E2;
 }
 .site-nav .page-link:not(:last-child) 
 {
