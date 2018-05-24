@@ -5,11 +5,7 @@ gem 'rails', '4.2.1'
 # Use bcrypt for security reasons
 gem 'bcrypt', '3.1.7'
 # Use postgresql as the database for Active Record
-<<<<<<< HEAD
 gem 'pg', '~> 0.15'
-=======
-gem 'pg', '~> 0.20.0'
->>>>>>> ffa732447fdd6f30025f26d6fe16a1bfe0822866
 # Use faker for database seeder
 gem 'faker'
 

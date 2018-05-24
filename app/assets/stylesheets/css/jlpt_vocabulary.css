@@ -46,33 +46,33 @@
 #question_num
 {
   color: var(--stronger-color);
-	font-size: 2vw;
-	text-align: center;
+  font-size: 2vw;
+  text-align: center;
 }
 #question_div
 {
-	font-size: 2vw;
-	color: var(--strong-color);
-	text-align: center;
-	background-color: white;
-	border-style: solid;
-	border-radius: 5vw;
-	border-color: var(--strong-color);
-	margin-top: 1vw;
-	margin-bottom: 1vw;
+  font-size: 2vw;
+  color: var(--strong-color);
+  text-align: center;
+  background-color: white;
+  border-style: solid;
+  border-radius: 5vw;
+  border-color: var(--strong-color);
+  margin-top: 1vw;
+  margin-bottom: 1vw;
 }
 #text_answer
 {
-	font-size: 1.5vw;
-	width: 100%;
+  font-size: 1.5vw;
+  width: 100%;
   text-align: center;
 }
 #quiz_div
 {
-	padding: 1vw;
-	border-radius: 1vw;
-	border-color: var(--strong-color);
-	border-style: solid;
+  padding: 1vw;
+  border-radius: 1vw;
+  border-color: var(--strong-color);
+  border-style: solid;
 }
 #submit_div
 {
@@ -80,8 +80,8 @@
 }
 #submit_answer
 {
-	align-items: center;
-	background-color: var(--strong-color);
+  align-items: center;
+  background-color: var(--strong-color);
   color: white;
   padding: 1.5vw;
   font-size: 16px;
