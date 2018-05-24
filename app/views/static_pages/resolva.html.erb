@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <%= stylesheet_link_tag "css/main.css", "css/resolva.css" %>
+  <title>JLPT Vocabulary | levy's sandbox</title>
+</head>
+
+<body>
+  <div class='header'><%= render "layouts/header" %></div>
+  <script src="/assets/javascripts/resolva.js"></script>
+  <div class='wrapper'>
+    <header class="post-header">
+      <center><h1 class="post-title">Resolva</h1></center>
+    </header>
+    <div>
+      <center><h1>Encontre o valor de "?"</h2></center>
+    </div>
+    <div id='quiz_div'>
+      <br>
+      <div id='question_div'></div>
+      <div id='answer_div'><br></div>
+      <textarea id='text_answer' autofocus class='answer_input' placeholder='Digite sua resposta e aperte em "enviar".'></textarea>
+      <br>
+      <ui id='direction_buttons'>
+        <li><button id='show_answer_button' class='direction-buttons' onclick="showAnswer()">RESPOSTA</button></li>
+        <li><button id='new_button' class='direction-buttons' onclick="setQuestion()">NOVO</button></li>
+      </ui>
+      <div id='submit_div'>
+          <input id='submit_answer' class='answer_submit' type="submit" value="ENVIAR" onclick="submitAnswer()">
+      </div>
+    </div>
+    <div id='score_div'></div>
+    <div id='mistakes_div'></div>
+  </div>
+</body>
+<footer><%= render "layouts/footer" %></footer>
+
+</html>
