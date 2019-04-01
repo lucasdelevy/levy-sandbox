@@ -1,0 +1,162 @@
+:root
+{
+  --stronger-color: #1C6FBF;
+  --strong-color: #3A83CA;
+  --weak-color: #7BAFE2;
+  --weaker-color: #A8C6EF;
+  --background-color: #FFE5E5;
+}
+
+/* Buttons */
+.nice-buttons
+{
+  background-color: var(--strong-color);
+  color: white;
+  padding: 1vw;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  display: auto;
+  border-radius: 10vw;
+}
+.nice-buttons:hover, .nice-buttons:focus
+{
+  background-color: var(--weak-color);
+}
+.nice-buttons:disabled
+{
+  background-color: var(--weaker-color);
+  cursor: default;
+}
+
+/* Level Buttons */
+#jlpt_buttons
+{
+ display: table;
+ width: 100%;
+ padding-top: 1vw;
+}
+#jlpt_buttons li
+{
+  display: table-cell;
+  text-align: center;
+}
+
+/* Quiz structure */
+#question_num
+{
+  color: var(--stronger-color);
+    font-size: 2vw;
+    text-align: center;
+}
+#question_div
+{
+    font-size: 2vw;
+    color: var(--strong-color);
+    text-align: center;
+    background-color: white;
+    border-style: solid;
+    border-radius: 5vw;
+    border-color: var(--strong-color);
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+#text_samples1
+{
+    font-size: 1.5vw;
+    width: 100%;
+  text-align: center;
+}
+#text_samples2
+{
+    font-size: 1.5vw;
+    width: 100%;
+  text-align: center;
+}
+#text_alpha
+{
+    font-size: 1.5vw;
+    width: 100%;
+  text-align: center;
+}
+#samples_div
+{
+    padding: 1vw;
+    border-radius: 1vw;
+    border-color: var(--strong-color);
+    border-style: solid;
+}
+#submit_div
+{
+  text-align: center;
+}
+#score_div
+{
+  align-items: center;
+  text-align: center;
+  background-color: var(--strong-color);
+  color: white;
+  padding: 1.5vw;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  display: auto;
+  border-radius: 10vw;
+  margin-top: 1vw;
+}
+#submit_answer:hover, #submit_answer:focus
+{
+  background-color: var(--stronger-color);
+}
+
+/* Direction buttons */
+#direction_buttons
+{
+ display: table;
+ width: 100%;
+ padding-top: 1vw;
+}
+#direction_buttons li
+{
+  display: table-cell;
+  text-align: center;
+  width: 50%;
+}
+.direction-buttons
+{
+  background-color: var(--strong-color);
+  color: white;
+  padding: 1vw;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  display: auto;
+  border-radius: 1vw;
+  width: 100%;
+}
+.direction-buttons:hover, .direction-buttons:focus
+{
+  background-color: var(--weak-color);
+}
+.direction-buttons:disabled
+{
+  background-color: var(--weaker-color);
+  cursor: default;
+}
+
+/* Credits */
+#credits_div
+{
+  font-style: italic;
+  text-align: center;
+}
+
+/* Answer */
+#answer_div
+{
+  font-size: 2vw;
+  color: var(--stronger-color);
+  text-align: center;
+  margin-top: 1vw;
+  margin-bottom: 1vw; 
+}

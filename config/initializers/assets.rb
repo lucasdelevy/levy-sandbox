@@ -23,6 +23,7 @@ Rails.application.config.assets.precompile += %w( css/quaternions.css )
 Rails.application.config.assets.precompile += %w( css/jlpt.css )
 Rails.application.config.assets.precompile += %w( css/jlpt_vocabulary.css )
 Rails.application.config.assets.precompile += %w( css/resolva.css )
+Rails.application.config.assets.precompile += %w( css/ttest.css )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

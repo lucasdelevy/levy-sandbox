@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <%= stylesheet_link_tag "css/main.css", "css/ttest.css" %>
+  <title>T-Test | levy's sandbox</title>
+</head>
+
+<body>
+  <div class='header'><%= render "layouts/header" %></div>
+  <script src="/assets/javascripts/ttest.js"></script>
+  <script src="/assets/javascripts/jstat.js"></script>
+  <div class='wrapper'>
+    <header class="post-header">
+      <center><h1 class="post-title">T-Test</h1></center>
+    </header>
+    <div id='samples_div'>
+      <textarea id='text_samples1' autofocus class='answers_input' placeholder='Insira os valores separados por vírgula.'></textarea>
+      <textarea id='text_samples2' autofocus class='answers_input' placeholder='Insira os valores separados por vírgula ou o valor esperado.'></textarea>
+      <textarea id='text_alpha' autofocus class='answers_input' placeholder='Insira o alfa.'>0.05</textarea>
+      <br>
+      <ui id='options_buttons'>
+        <li><button id='one_sample_button' class='direction-buttons' onclick="oneSample()">Uma Amostra</button></li>
+        <li><button disabled id='two_samples_button' class='direction-buttons' onclick="twoSamples()">Duas Amostras</button></li>
+      </ui>
+    </div>
+    <div id='score_div'></div>
+  </div>
+</body>
+<footer><%= render "layouts/footer" %></footer>
+
+</html>
