@@ -1,47 +1,94 @@
-// Grid functions
+// Window renderizing
+// Getting dimensions
 var window_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 var window_height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
 
-console.log(window_width, window_height)
+var mouse_down = false;
+
 var ncols;
 var nrows;
 var small_window;
-if(window_width*window_height > 400000)
+
+var grid;
+var old_grid;
+
+var div_game;
+
+var div_buttons;
+var start_button;
+var stop_button;
+var interval;
+
+function mainfunction()
 {
-    ncols = 100;
-    nrows = 60;
-    small_window = false;
-}
-else
-{
-    ncols = 60;
-    nrows = 40;
-    small_window = true;
+    console.log(window_width, window_height)
+
+    // Getting number of columns and rows
+    if(window_width*window_height > 400000)
+    {
+        ncols = 100;
+        nrows = 60;
+        small_window = false;
+    }
+    else
+    {
+        ncols = 60;
+        nrows = 40;
+        small_window = true;
+    }
+    console.log('ncols and nrows found')
+
+    // Creating clickable grid
+    grid = clickableGrid(nrows,ncols,true,
+        function(el,row,col,i)
+        {
+            el.className = el.className == 'clicked' ? 'unclicked' : 'clicked'
+        });
+    old_grid = clickableGrid(nrows,ncols,false,
+        function(el,row,col,i)
+        {
+            el.className = el.className == 'clicked' ? 'unclicked' : 'clicked'
+        });
+    console.log('Grid created')
+
+    // grid.className = 'square-grid'
+    // old_grid.className = 'square-grid'
+
+    // Game division
+    div_game = document.getElementById('div_game')
+    div_game.appendChild(grid);
+
+    // Button division
+    div_buttons = document.getElementById('div_buttons')
+    start_button = document.getElementById('start_button')
+    stop_button = document.getElementById('stop_button')
+    interval = null;
+
+    start_button.disabled = false;
+    stop_button.disabled = true;
 }
 
-var grid = clickableGrid(nrows,ncols,
-    function(el,row,col,i)
-    {
-        el.className = el.className == 'clicked' ? 'unclicked' : 'clicked'
-    });
-var old_grid = clickableGrid(nrows,ncols,
-    function(el,row,col,i)
-    {
-        el.className = el.className == 'clicked' ? 'unclicked' : 'clicked'
-    });
-grid.className = 'square-grid'
-old_grid.className = 'square-grid'
-
-var mouse_down = false;
-function clickableGrid(rows, cols, callback)
+// Grid functions
+function clickableGrid(rows, cols, visibility, callback)
 {
     var grid = document.createElement('table');
+    console.log(visibility)
+    if (visibility == false)
+    {
+        grid.style.visibility = "hidden";
+        console.log('Invisible grid')
+    }  
+    else
+    {
+        console.log('Visible grid')
+    }      
     grid.className = 'square-grid';
 
     var i = 0;
     for (var r = 0; r < rows; ++r)
     {
         var tr = grid.appendChild(document.createElement('tr'));
+
         for (var c = 0; c < cols; ++c)
         {
             var cell = tr.appendChild(document.createElement('td'));
@@ -646,19 +693,4 @@ function hideOtherPatterns()
     document.getElementById("other_patterns_div").style.display = 'none';
 }
 
-// Window renderizing
-window.onload = function()
-{
-    // Game division
-    var div_game = document.getElementById('div_game')
-    div_game.appendChild(grid);
-
-    // Button division
-    var div_buttons = document.getElementById('div_buttons')
-    var start_button = document.getElementById('start_button')
-    var stop_button = document.getElementById('stop_button')
-    var interval = null;
-
-    start_button.disabled = false;
-    stop_button.disabled = true;
-}
+$(document).on('turbolinks:load', mainfunction); // Turbolinks 5

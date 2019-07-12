@@ -126,7 +126,7 @@ function rotatedVectorUpdate()
   Plotly.redraw(graph_div);
 }
 
-$(document).ready(function()
+function mainfunction()
 {
   // Preventing form submission to reload page
   $("#original_vector_form").submit(
@@ -262,7 +262,9 @@ $(document).ready(function()
   };
 
   Plotly.newPlot('plot_div', data, layout);
-});
+}
+
+$(document).on('turbolinks:load', mainfunction); // Turbolinks 5
 
 // Plotly.newPlot("8e43f415-64a0-474a-909d-02174c717b20",
 //   [

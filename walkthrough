@@ -1,0 +1,11 @@
+# Get started
+rvm use ruby-2.2.2
+bundle install
+
+createdb
+rake db:migrate
+
+rails s
+
+# Dealing with SSL certificate:
+https://devcenter.heroku.com/articles/ssl-certificate-self
