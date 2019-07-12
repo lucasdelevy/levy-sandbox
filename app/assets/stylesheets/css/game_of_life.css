@@ -12,8 +12,10 @@ body
 /* Game div */
 :root
 {
-    --dead-color: #FFD8D8;
-    --alive-color: #FF8686;
+    /*--dead-color: #FFD8D8;
+    --alive-color: #FF8686;*/
+    --dead-color: #FFFFFF;
+    --alive-color: #000000;
 }
 .game-class
 {
